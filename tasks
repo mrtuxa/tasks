@@ -15,7 +15,7 @@ def load_tasks(date):
             'evening': ['Taking a shower', 'diner', 'Brushing teeth']
         }
     else:
-        filename = f"tasks_{date}.json"
+        filename = f"{os.path.expanduser('~')}/.tasks_{date}.json"
         if os.path.exists(filename):
             with open(filename, 'r') as f:
                 tasks = json.load(f)
@@ -28,7 +28,7 @@ def load_tasks(date):
     return tasks
 
 def save_tasks(tasks, date):
-    filename = f"tasks_{date}.json"
+    filename = f"{os.path.expanduser('~')}/.tasks_{date}.json"
     with open(filename, 'w') as f:
         json.dump(tasks, f)
 
